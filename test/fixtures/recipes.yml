@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  ingredients: MyString
+  cuisine: MyString
+  directions: MyString
+  favorite: false
+
+two:
+  title: MyString
+  ingredients: MyString
+  cuisine: MyString
+  directions: MyString
+  favorite: false
