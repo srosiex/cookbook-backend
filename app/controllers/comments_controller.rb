@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
+  before_action :set_recipe, only: [:index, :create]
 
   # GET /comments
   def index
@@ -39,13 +40,16 @@ class CommentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
+  def comment_params
+    params.require(:comment).permit(:content, :recipe_id)
+  end
+
+  def set_comment
       @comment = Comment.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def comment_params
-      params.require(:comment).permit(:content, :recipe_id)
+    def set_recipe
+      @recipe = Recipe.find_by(id: params[:recipe_id])
     end
+
 end
